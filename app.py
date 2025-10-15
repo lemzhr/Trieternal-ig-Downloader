@@ -1,16 +1,16 @@
-from flask import Flask, send_from_directory, request, jsonify
+from flask import Flask, render_template, send_from_directory, request, jsonify
 from downloader import download_instaloader, download_rapidapi
-import os
 
 app = Flask(__name__, static_folder="static", static_url_path="/static")
 
 @app.route("/")
 def index():
-    return send_from_directory(".", "index.html")
+    return render_template("index.html")
 
 @app.route("/faq")
 def faq():
-    return send_from_directory(".", "faq.html")
+    return render_template("faq.html")
+
 
 @app.route("/static/<path:filename>")
 def static_files(filename):

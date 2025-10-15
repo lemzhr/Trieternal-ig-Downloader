@@ -1,0 +1,82 @@
+/* --- FAQ Page Specific Styles --- */
+
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.faq-container {
+    margin-top: 2rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.faq-item {
+    background: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.faq-item[open] {
+    background: rgba(40, 40, 40, 0.7);
+}
+
+.faq-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.faq-item summary {
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 1.2rem 1.5rem;
+    cursor: pointer;
+    position: relative;
+    list-style: none;
+    /* Hapus panah default */
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+    /* Hapus panah default untuk Chrome/Safari */
+}
+
+/* Membuat ikon panah kustom */
+.faq-item summary::after {
+    content: '\f078';
+    /* Ikon panah ke bawah dari Font Awesome */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.faq-item[open] summary::after {
+    transform: translateY(-50%) rotate(180deg);
+    /* Panah ke atas saat terbuka */
+}
+
+.faq-item p {
+    padding: 0 1.5rem 1.2rem 1.5rem;
+    color: var(--text-color-dark);
+    border-top: 1px solid var(--border-color);
+    margin-top: 0.5rem;
+    animation: fadeInText 0.5s ease;
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

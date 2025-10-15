@@ -1,0 +1,511 @@
+/* --- Reset & Global Styles --- */
+:root {
+    --primary-color: #8A2BE2;
+    /* Blue Violet */
+    --secondary-color: #FF007F;
+    /* Rose */
+    --tertiary-color: #00F2FE;
+    /* Cyan */
+    --bg-color: #0D0D0D;
+    --card-bg-color: rgba(30, 30, 30, 0.6);
+    --text-color: #F5F5F5;
+    --text-color-dark: #A0A0A0;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --success-color: #28a745;
+    --error-color: #e14a56;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* --- Aurora Background Effect --- */
+.aurora-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.aurora-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.4;
+}
+
+.shape1 {
+    width: 400px;
+    height: 400px;
+    background: var(--primary-color);
+    top: -100px;
+    left: -100px;
+    animation: move1 20s infinite alternate;
+}
+
+.shape2 {
+    width: 500px;
+    height: 500px;
+    background: var(--secondary-color);
+    bottom: -150px;
+    right: -150px;
+    animation: move2 25s infinite alternate;
+}
+
+.shape3 {
+    width: 300px;
+    height: 300px;
+    background: var(--tertiary-color);
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+    animation: move3 18s infinite alternate;
+}
+
+@keyframes move1 {
+    from {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    to {
+        transform: translate(200px, 100px) rotate(90deg);
+    }
+}
+
+@keyframes move2 {
+    from {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-200px, -100px) rotate(180deg);
+    }
+}
+
+@keyframes move3 {
+    from {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    to {
+        transform: translate(100px, -200px) rotate(-90deg);
+    }
+}
+
+/* --- Header --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background: rgba(18, 18, 18, 0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.faq-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.faq-link:hover {
+    background-color: var(--card-bg-color);
+}
+
+/* --- Main Container & Content --- */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 150px);
+    padding: 4rem 2rem;
+}
+
+.content-wrapper {
+    width: 100%;
+    max-width: 600px;
+    background: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2.5rem;
+    backdrop-filter: blur(25px);
+    box-shadow: 0 8px 32px 0 var(--shadow-color);
+    text-align: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--text-color-dark);
+    margin-bottom: 2rem;
+}
+
+/* --- Category Buttons --- */
+.category-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.category-buttons button {
+    background: transparent;
+    color: var(--text-color-dark);
+    border: 1px solid var(--border-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.category-buttons button:hover {
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+}
+
+.category-buttons button.active {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-color: transparent;
+}
+
+/* --- Form & Input --- */
+#downloadForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-color-dark);
+}
+
+#url-input {
+    width: 100%;
+    padding: 1rem 3.5rem 1rem 3rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    background-color: rgba(0, 0, 0, 0.3);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#url-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(138, 43, 226, 0.3);
+}
+
+#paste-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--text-color-dark);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+#paste-btn:hover {
+    color: var(--text-color);
+}
+
+/* --- Download Button --- */
+.download-btn {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(138, 43, 226, 0.5);
+}
+
+.download-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.download-btn:disabled {
+    cursor: not-allowed;
+    background: #555;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Loading Spinner on Button */
+.btn-loader {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    display: none;
+    /* Hidden by default */
+    animation: spin 1s linear infinite;
+}
+
+.download-btn.loading .btn-text {
+    display: none;
+}
+
+.download-btn.loading .btn-loader {
+    display: block;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* --- Result Container --- */
+.result-container {
+    margin-top: 2rem;
+    min-height: 80px;
+    animation: resultFadeIn 0.5s ease;
+}
+
+@keyframes resultFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.result-container p {
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.btn-download {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    background-color: var(--success-color);
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-download:hover {
+    background-color: #218838;
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+}
+
+/* --- Footer --- */
+.footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--text-color-dark);
+    font-size: 0.9rem;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 640px) {
+    .main-title {
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .container {
+        padding: 2rem 1rem;
+    }
+
+    .content-wrapper {
+        padding: 1.5rem;
+    }
+
+    .category-buttons button {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* --- Styling untuk Notifikasi Kustom --- */
+.custom-notification {
+    position: fixed;
+    bottom: -200px;
+    /* Mulai dari luar layar */
+    right: 20px;
+    width: 340px;
+    background: rgba(30, 30, 30, 0.8);
+    /* Warna glassmorphism gelap */
+    color: var(--text-color);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 32px 0 var(--shadow-color);
+    backdrop-filter: blur(20px);
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    /* Transisi halus */
+    z-index: 1000;
+    opacity: 0;
+}
+
+/* Animasi masuk */
+.custom-notification.show {
+    bottom: 20px;
+    opacity: 1;
+}
+
+/* Animasi keluar */
+.custom-notification.hide {
+    opacity: 0;
+    transform: scale(0.9);
+    bottom: -200px;
+}
+
+.custom-notification strong {
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.custom-notification p {
+    font-size: 0.9rem;
+    color: var(--text-color-dark);
+    margin-bottom: 4px;
+}
+
+.custom-notification p b {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/* Container untuk tombol */
+.custom-notification .button-group {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Styling umum untuk tombol notifikasi */
+.custom-notification button {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+/* Tombol Hubungi */
+#contact-btn {
+    background: var(--primary-color);
+    color: white;
+}
+
+#contact-btn:hover {
+    background: #a600ff;
+    /* Warna lebih gelap saat hover */
+    transform: translateY(-2px);
+}
+
+/* Tombol Tutup */
+#close-notif {
+    background: var(--error-color);
+    color: var(--text-color);
+}
+
+#close-notif:hover {
+    background: rgba(241, 0, 0, 0.826);
+    color: var(--text-color);
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 400px) {
+    .custom-notification {
+        width: calc(100% - 40px);
+        left: 20px;
+        right: 20px;
+    }
+}

@@ -20,8 +20,8 @@ def download_instaloader(url):
 def download_rapidapi(url):
     api_url = "https://instagram-media-downloader.p.rapidapi.com/rapid/post.php"
     headers = {
-        "X-RapidAPI-Host": "instagram-media-downloader.p.rapidapi.com",
-        "X-RapidAPI-Key": "b0dfdb1b04mshc94f98ab5787778p1c260ajsnf93e82d928e6"
+        "X-RapidAPI-Host": "instagram120.p.rapidapi.com",
+        "X-RapidAPI-Key": "2df9a48a19mshf3714f7c43dc54bp18aa6fjsn3086c8e7addb"
     }
     response = requests.get(api_url, headers=headers, params={"url": url})
 

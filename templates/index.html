@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Unduh Video, Foto, Reels, dan Story Instagram dengan cepat dan mudah menggunakan TrieternalX Downloader.">
+    <title>TrieternalX - Instagram Downloader</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" type="image/x-icon" href="/static/TrieternalX.ico?v=3">
+</head>
+
+<body>
+    <div class="aurora-background">
+        <div class="aurora-shape shape1"></div>
+        <div class="aurora-shape shape2"></div>
+        <div class="aurora-shape shape3"></div>
+    </div>
+
+    <header class="header">
+        <h1 class="logo">TrieternalX</h1>
+        <nav>
+            <a href="/faq" class="faq-link">FAQ</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="content-wrapper">
+            <div class="category-buttons">
+                <button>📹 Video</button>
+                <button>🖼️ Photo</button>
+                <button>🎞️ Reels</button>
+                <button>📖 Story</button>
+            </div>
+
+            <h1 class="main-title">Instagram Downloader</h1>
+            <p class="subtitle">Unduh konten Instagram favorit Anda secara anonim dan gratis.</p>
+
+            <form id="downloadForm" novalidate>
+                <div class="input-group">
+                    <i class="fa-solid fa-link input-icon"></i>
+                    <input type="text" id="url-input" placeholder="Tempel URL Instagram di sini...">
+                    <button type="button" id="paste-btn" title="Tempel dari Clipboard">
+                        <i class="fa-regular fa-paste"></i>
+                    </button>
+                </div>
+                <button type="submit" class="download-btn" id="download-btn">
+                    <span class="btn-text">Download</span>
+                    <span class="btn-loader"></span>
+                </button>
+            </form>
+
+            <div id="result" class="result-container"></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        &copy; 2025 TrieternalX Downloader | All Rights Reserved
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
