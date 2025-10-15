@@ -16,7 +16,6 @@ def download_instaloader(url):
         print("[ERROR] Instaloader:", str(e))
         return None
 
-# Fungsi untuk mendownload dengan API RapidAPI
 def download_rapidapi(url):
     api_url = "https://instagram-media-downloader.p.rapidapi.com/rapid/post.php"
     headers = {
@@ -25,7 +24,7 @@ def download_rapidapi(url):
     }
     response = requests.get(api_url, headers=headers, params={"url": url})
 
-    print(response.json())  # ✅ Tambahkan ini untuk debugging
+    print(response.json())
 
     return response.json().get("video_url") or response.json().get("image_url")
 
@@ -41,13 +40,11 @@ def download():
         return jsonify({"success": False, "message": "Gagal mendownload"}), 400
 
     try:
-        # Download file dari URL Instagram
         response = requests.get(download_url, stream=True)
         if response.status_code == 200:
             filename = download_url.split("/")[-1]
             file_path = os.path.join("downloads", filename)
 
-            # Simpan file sementara
             with open(file_path, "wb") as f:
                 for chunk in response.iter_content(1024):
                     f.write(chunk)
